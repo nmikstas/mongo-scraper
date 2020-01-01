@@ -6,7 +6,20 @@ module.exports = function(app)
     app.post("/article", function(req, res)
     {
         db.Article.create(req.body)
-        
+        .then(function(dbArticle)
+        {
+            res.json(dbArticle);
+        })
+        .catch(function(err)
+        {
+            res.json(err);
+        });
+    });
+
+    //Delete an article from the database.
+    app.delete("/article/:id", function(req, res)
+    {
+        db.Article.find({ _id: req.params.id }).remove()
         .then(function(dbArticle)
         {
             res.json(dbArticle);

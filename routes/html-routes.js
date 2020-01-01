@@ -1,20 +1,21 @@
 var axios   = require("axios");
 var cheerio = require("cheerio");
+var db      = require("../models");
 
 module.exports = function(app)
 {
-    // A GET route for scraping the InfoWars website
+    //Scrape the InfoWars website.
     app.get("/scrape", function(req, res)
     {
         axios.get("https://www.infowars.com").then(function(response)
         {
-            // Load the HTML into cheerio and save it to a variable
+            //Load the HTML into cheerio and save it to a variable
             var $ = cheerio.load(response.data);
   
-            // An empty array to save the data that we'll scrape
+            //An empty array to save the data that we'll scrape
             var results = [];
   
-            // Get all the articles.
+            //Get all the articles.
             $("div.article-content").each(function(i, element)
             {
                 var title = $(element).find("a").text().trim();
@@ -34,7 +35,7 @@ module.exports = function(app)
                 
                 var link = $(element).find("a").attr("href");
                 
-                // Save these results.
+                //Save these results.
                 results.push(
                 {
                     title: title,
@@ -44,6 +45,22 @@ module.exports = function(app)
 
             let hbsObject = { results: results };
             res.render("scrape", hbsObject);
+        });
+    });
+
+    //Get all the saved articles.
+    app.get("/articles", function(req, res)
+    {
+        db.Article.find({})
+        .then(function(dbArticle)
+        {
+            let hbsObject = { results: dbArticle };
+            res.render("articles", hbsObject);
+        })
+        .catch(function(err)
+        {
+            let hbsObject = { results: err };
+            res.render("articles", hbsObject);
         });
     });
 
