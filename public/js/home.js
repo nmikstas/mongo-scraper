@@ -1,12 +1,11 @@
 let scrape = () =>
 {
-    
     window.location.assign("/scrape");
 }
 
 let articles = () =>
 {
-    
+    window.location.assign("/articles");
 }
 
 $(document).ready(function ()

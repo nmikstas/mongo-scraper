@@ -191,3 +191,45 @@ footer
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+.header-div
+{
+    display: flex;    
+    align-items: center; 
+    text-align: left;
+}
+
+.header-h1
+{
+    display: inline;
+}
+
+.added
+{
+    display: flex;    
+    align-items: center; 
+    text-align: left;
+    color: #0FFF0F;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.not-added
+{
+    display: flex;    
+    align-items: center; 
+    text-align: left;
+    color: #FF0F0F;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.duplicate
+{
+    display: flex;    
+    align-items: center; 
+    text-align: left;
+    color: rgb(192, 100, 14);
+    font-size: 1.2rem;
+    font-weight: bold;
+}

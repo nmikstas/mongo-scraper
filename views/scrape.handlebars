@@ -1,5 +1,10 @@
 <div id="page-body" class="container">
-    <h1>Scraped Articles</h1>
+    <div class="header-div">
+        <h1 class="header-h1">Scraped Articles</h1>
+        <button class="btn btn-outline-primary spacer" id="home-btn">Home</button>
+        <button class="btn btn-outline-primary" id="articles-btn">View Saved Articles</button>
+    </div>
+    
 
     {{#each results}}
         <div class="article-div row">
@@ -7,7 +12,7 @@
                 <a href="{{link}}" class="article-link">{{title}}</a>
             </div>
             <div class="col-md-3">
-                <button class="btn btn-outline-success my-2" article="{{link}}">Save Article</button>
+                <button class="btn btn-outline-success my-2 save-btn" data-text="{{title}}" data-link="{{link}}">Save Article</button>
             </div>
         </div>
     {{/each}}
