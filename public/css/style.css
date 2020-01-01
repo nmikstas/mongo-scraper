@@ -154,3 +154,40 @@ footer
     background-color: rgba(30, 47, 126, 0.3);
     color: #ffffff;
 }
+
+/********************************* Application Specifiec Stuff ***********************************/
+
+#page-body
+{
+    flex: 1 0 auto;
+    text-align: center;
+}
+
+.info-img
+{
+    width: 100%;
+    padding: 30px;
+}
+
+.spacer
+{
+    margin-right: 30px;
+}
+
+.article-div
+{
+    background-color: #e1e1ee;
+    border: 2px solid rgb(30, 47, 126);
+    border-radius: 5px;
+    margin-top: 10px;
+    display: flex;    
+    align-items: center; 
+    text-align: left;
+}
+
+.article-link
+{
+    color: rgb(30, 47, 126);
+    font-size: 1.2rem;
+    font-weight: bold;
+}

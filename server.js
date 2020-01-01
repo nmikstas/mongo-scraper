@@ -9,9 +9,11 @@ var app = express();
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
+
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // Make public a static folder
 app.use(express.static("public"));
 
@@ -20,9 +22,7 @@ mongoose.connect("mongodb://localhost/infowarsdb", { useNewUrlParser: true, useU
 
 //Set Handlebars.
 let exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({
-    defaultLayout: "main"
-}));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes
@@ -30,6 +30,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // Start the server
-app.listen(PORT, function() {
-  console.log("App running on port " + PORT + "!");
+app.listen(PORT, function()
+{
+    console.log("App running on port " + PORT + "!");
 });
