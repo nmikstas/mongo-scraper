@@ -64,11 +64,31 @@ module.exports = function(app)
         });
     });
 
+    //Get one article and its notes.
+    app.get("/article/:id", function(req, res)
+    {
+        db.Article.findOne({ _id: req.params.id })
+        .populate("notes")
+        .then(function(dbArticle)
+        {
+            //res.json({ response: dbArticle });
+            let hbsObject = { results: dbArticle, notes: dbArticle.notes };
+            res.render("notes", hbsObject);
+        })
+        .catch(function(err)
+        {
+            let hbsObject = { results: err };
+            res.render("notes", hbsObject);
+        });
+    });
+
+    //Send the root to the home page.
     app.get("/", function(req, res)
     {
         res.redirect("/home");
     });
 
+    //Load the home page.
     app.get("/home", function(req, res)
     {
         res.render("home");   

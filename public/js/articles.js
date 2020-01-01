@@ -30,6 +30,23 @@ $(document).ready(function ()
 
     $(".notes-btn").on("click", function()
     {
+        let articleId = $(this).attr("data-article-id");
+        let articleNote = "This is a note!";
 
+        window.location.assign("/article/" + articleId);
+        /*$.ajax(
+        {
+            method: "POST",
+            url: "/note",
+            data:
+            {
+                articleId: articleId,
+                body:      articleNote
+            }
+        })
+        .then(function(response)
+        {   
+            console.log(response);
+        });*/
     });
 });

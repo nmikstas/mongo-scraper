@@ -185,6 +185,17 @@ footer
     text-align: left;
 }
 
+.note-div
+{
+    background-color: #e1e1ee;
+    border: 2px solid rgb(30, 47, 126);
+    border-radius: 5px;
+    margin-top: 10px;
+    display: flex;    
+    align-items: center; 
+    text-align: left;
+}
+
 .article-link
 {
     color: rgb(30, 47, 126);

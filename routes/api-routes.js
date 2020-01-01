@@ -30,6 +30,26 @@ module.exports = function(app)
         });
     });
 
+    //Save an article note to the database.
+    app.post("/note", function(req, res)
+    {
+        console.log(req.body);
+
+        db.Note.create({ body: req.body.body })
+        .then(function(dbNote)
+        {
+            return db.Article.findOneAndUpdate({ _id: req.body.articleId }, { $push: { notes: dbNote._id } }, { new: true });
+        })
+        .then(function(dbArticle)
+        {
+            res.json(dbArticle);
+        })
+        .catch(function(err)
+        {
+            res.json(err);
+        });
+    });
+
 
 
 
