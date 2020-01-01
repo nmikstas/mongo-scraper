@@ -35,7 +35,7 @@ module.exports = function(app)
                 
                 var link = $(element).find("a").attr("href");
                 
-                //Save these results.
+                //Save the results.
                 results.push(
                 {
                     title: title,

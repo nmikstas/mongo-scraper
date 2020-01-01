@@ -50,12 +50,24 @@ module.exports = function(app)
         });
     });
 
+    //Delete a note from the database.
+    app.delete("/note/:articleid/:noteid", function(req, res)
+    {
+        db.Article.findOneAndUpdate({ _id: req.params.articleid }, { $pull: { notes: req.params.noteid } }, { new: true })
+        .then(function(dbArticle)
+        {
+            console.log("Article:");
+            console.log(dbArticle);
 
-
-
-
-
-
-
-
+            return db.Note.find({ _id: req.params.noteid }).deleteOne();
+        })
+        .then(function(dbNote)
+        {
+            res.json(dbNote);
+        })
+        .catch(function(err)
+        {
+            res.json(err);
+        });
+    });
 }

@@ -6,17 +6,25 @@
         <button class="btn btn-outline-primary" id="articles-btn">View Saved Articles</button>
     </div>
 
+    <a href ="{{results.link}}" class="article-title">{{results.title}}</a>
+
+    <form class="note-form">
+        <div class="input-group">
+            <input class="form-control" id="new-note" data-article="{{results._id}}" type="text" placeholder="Enter Note Here">
+            <button class="btn btn-outline-primary ml-2 input-group-btn" id="note-submit" type="submit">Add Note</button>
+        </div>
+    </form>
+
     {{#each notes}}
         <div class="note-div row" data-article-id="{{_id}}">
             <div class="col-md-9">
                 {{body}}
             </div>
             <div class="col-md-3">
-                <button class="btn btn-outline-danger my-2 delete-btn" data-article-id="{{_id}}">Delete</button>
+                <button class="btn btn-outline-danger my-2 delete-btn" data-note-id="{{_id}}">Delete</button>
             </div>
         </div>
     {{/each}}
-    
 </div>
 
 <!--Bootstrap-->

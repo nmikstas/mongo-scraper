@@ -174,18 +174,7 @@ footer
     margin-right: 30px;
 }
 
-.article-div
-{
-    background-color: #e1e1ee;
-    border: 2px solid rgb(30, 47, 126);
-    border-radius: 5px;
-    margin-top: 10px;
-    display: flex;    
-    align-items: center; 
-    text-align: left;
-}
-
-.note-div
+.article-div, .note-div
 {
     background-color: #e1e1ee;
     border: 2px solid rgb(30, 47, 126);
@@ -201,6 +190,13 @@ footer
     color: rgb(30, 47, 126);
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+.article-title
+{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #7f7f7f;
 }
 
 .header-div
@@ -243,4 +239,14 @@ footer
     color: rgb(192, 100, 14);
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+.label
+{
+    color: #ffffff;
+}
+
+.note-form
+{
+    margin: 2rem;
 }
