@@ -2,7 +2,7 @@ var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
-var PORT = 3000;
+let PORT = process.env.PORT || 3000;
 
 // Initialize Express
 var app = express();
@@ -18,7 +18,8 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/infowarsdb", { useNewUrlParser: true, useUnifiedTopology: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/infowarsdb";
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //Set Handlebars.
 let exphbs = require("express-handlebars");
