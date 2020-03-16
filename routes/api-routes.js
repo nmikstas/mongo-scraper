@@ -56,9 +56,6 @@ module.exports = function(app)
         db.Article.findOneAndUpdate({ _id: req.params.articleid }, { $pull: { notes: req.params.noteid } }, { new: true })
         .then(function(dbArticle)
         {
-            console.log("Article:");
-            console.log(dbArticle);
-
             return db.Note.find({ _id: req.params.noteid }).deleteOne();
         })
         .then(function(dbNote)
